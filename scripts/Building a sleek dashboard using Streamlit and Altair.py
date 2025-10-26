@@ -297,7 +297,7 @@ for chart_path in ["map_chart.png", "top_5_chart.png", "running_total_bike_chart
     story.append(Spacer(1, 24))
 
 doc.build(story)
-print("✅ PDF created successfully")
+print("PDF created successfully")
 
 # COMMAND ----------
 
@@ -329,15 +329,12 @@ part.add_header(
 )
 msg.attach(part)
 
-# ==================================================
-# 4️⃣ Send email via Gmail SMTP (adjust for your provider)
-# ==================================================
 context = ssl.create_default_context()
 
 try:
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
         server.send_message(msg)
-        print("✅ Email sent successfully!")
+        print("Email sent successfully!")
 except Exception as e:
-    print("❌ Error sending email:", e)
+    print("Error sending email:", e)
