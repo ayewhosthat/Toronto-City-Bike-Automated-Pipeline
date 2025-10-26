@@ -18,7 +18,6 @@ from zoneinfo import ZoneInfo
 
 # since DataBricks uses volumes, and pandas cannot directly write to volumes, we will leverage Spark's builtin capabilities
 # the spark session is already initialized within the notebook
-from pyspark.sql.functions import col
 
 # COMMAND ----------
 
@@ -44,7 +43,6 @@ def fetch_bikeshare_data():
         name = station['name']
         latitude = station['latitude']
         longitude = station['longitude']
-        # some stations will not have payment data available
         free_bikes = station['free_bikes']
         empty_slots = station['empty_slots']
         slots = station['extra']['slots']
